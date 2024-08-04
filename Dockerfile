@@ -26,17 +26,17 @@ ARG BUILD_VERSION
 
 # Labels
 LABEL \
-    io.hass.name="ha-spoofDPI" \
-    io.hass.description="ha-spoofDPI" \
+    io.hass.name="ha-spoofdpi" \
+    io.hass.description="ha-spoofdpi" \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.version="${BUILD_VERSION}" \
     io.hass.type="addon" \
     maintainer="ad <github@apatin.ru>" \
-    org.label-schema.description="ha-spoofDPI" \
+    org.label-schema.description="ha-spoofdpi" \
     org.label-schema.build-date=${BUILD_DATE} \
-    org.label-schema.name="ha-spoofDPI" \
+    org.label-schema.name="ha-spoofdpi" \
     org.label-schema.schema-version="1.0" \
-    org.label-schema.usage="https://gitlab.com/ad/ha-spoofDPI/-/blob/master/README.md" \
+    org.label-schema.usage="https://gitlab.com/ad/ha-spoofdpi/-/blob/master/README.md" \
     org.label-schema.vcs-ref=${BUILD_REF} \
-    org.label-schema.vcs-url="https://github.com/ad/ha-spoofDPI/" \
+    org.label-schema.vcs-url="https://github.com/ad/ha-spoofdpi/" \
     org.label-schema.vendor="HomeAssistant add-ons by ad"
