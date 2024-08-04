@@ -1,5 +1,5 @@
 {
-  "version": "0.1.1",
+  "version": "0.1.2",
   "name": "ha-spoofdpi",
   "slug": "ha-spoofdpi",
   "description": "",
@@ -8,13 +8,25 @@
   "image": "danielapatin/ha-spoofdpi",
   "arch": ["aarch64", "amd64", "armhf", "armv7", "i386"],
   "hassio_role": "default",
+  "ingress": true,
+  "ingress_port": 8180,
+  "ports": {
+    "8180/tcp": 8180
+  },
+  "ports_description": {
+    "8180/udp": "proxy port"
+  },
+  "privileged": [
+    "NET_ADMIN"
+  ],
   "map": [
     "config:rw"
   ],
+  "host_network": true,
   "options": {
     "ADDRESS": "0.0.0.0",
     "DNS": "1.1.1.1",
-    "PORT": 8080,
+    "PORT": 8180,
     "DEBUG": false,
     "NO_BANNER": true,
     "TIMEOUT": 500,
