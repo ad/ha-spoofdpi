@@ -16,7 +16,8 @@ COPY --from=builder /etc/group /etc/group
 COPY config.json /config.json
 COPY --from=builder /go/bin/spoof-dpi /go/bin/spoof-dpi
 
-ENTRYPOINT ["/go/bin/spoof-dpi"]
+CMD ["/go/bin/spoof-dpi", "-port=8180", "-no-banner=true", "-timeout=500", "-window-size=0"]
+# CMD ["/go/bin/spoof-dpi", "-addr=${ADDRESS} -debug=${DEBUG} -dns-addr=${DNS} -port=${PORT} -no-banner=${NO_BANNER} -timeout=${TIMEOUT} -window-size=${WINDOW_SIZE} $(echo \"${URLS}\" | tr -d ' ' | tr ',' '\n' | sed -e 's/^/-url=/') -pattern ${PATTERN}"]
 
 
 ARG BUILD_ARCH
