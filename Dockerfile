@@ -6,7 +6,7 @@ WORKDIR /go
 
 ARG BUILD_VERSION
 
-RUN go install github.com/xvzc/SpoofDPI/cmd/spoof-dpi@v${BUILD_VERSION}
+RUN go install github.com/xvzc/SpoofDPI/cmd/spoofdpi@v${BUILD_VERSION}
 
 FROM scratch
 
@@ -16,9 +16,9 @@ COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /etc/passwd /etc/passwd
 COPY --from=builder /etc/group /etc/group
 COPY config.json /config.json
-COPY --from=builder /go/bin/spoof-dpi /go/bin/spoof-dpi
+COPY --from=builder /go/bin/spoofdpi /go/bin/spoofdpi
 
-CMD ["/go/bin/spoof-dpi", "-addr=0.0.0.0", "-port=8180", "-dns-addr=1.1.1.1", "-no-banner=true", "-timeout=500", "-window-size=0"]
+CMD ["/go/bin/spoofdpi", "-addr=0.0.0.0", "-port=8180", "-dns-addr=1.1.1.1", "-no-banner=true", "-timeout=500", "-window-size=0"]
 # CMD ["/go/bin/spoof-dpi", "-addr=${ADDRESS} -debug=${DEBUG} -dns-addr=${DNS} -port=${PORT} -no-banner=${NO_BANNER} -timeout=${TIMEOUT} -window-size=${WINDOW_SIZE} $(echo \"${URLS}\" | tr -d ' ' | tr ',' '\n' | sed -e 's/^/-url=/') -pattern ${PATTERN}"]
 
 
