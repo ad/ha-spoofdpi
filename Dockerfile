@@ -4,7 +4,7 @@ RUN apk update && apk add --no-cache ca-certificates && update-ca-certificates
 
 WORKDIR /go
 
-RUN go install github.com/xvzc/SpoofDPI/cmd/spoof-dpi@latest
+RUN go install github.com/xvzc/SpoofDPI/cmd/spoof-dpi@v${BUILD_VERSION}
 
 FROM scratch
 
